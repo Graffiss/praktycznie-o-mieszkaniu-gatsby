@@ -2,7 +2,7 @@ import React from "react"
 
 const BlogPage = () => (
   <>
-    <h>Blog</h>
+    <h1>Blog</h1>
   </>
 )
 
