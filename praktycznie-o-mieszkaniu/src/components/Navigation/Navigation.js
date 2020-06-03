@@ -9,7 +9,7 @@ const NavWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-family: "Raleway";
+  font-family: "Montserrat";
   a {
     text-decoration: none;
     color: inherit;
@@ -20,11 +20,20 @@ const Logo = styled.span`
   font-weight: 700;
   font-size: 20px;
   margin-right: 10px;
+  color: #fbd35d;
 `
 
 const NavList = styled.ul`
   list-style: none;
   display: flex;
+  padding: 10px 20px;
+
+  .active {
+    background-color: #fbd35d;
+    color: black;
+    border-radius: 10px;
+    padding: 10px 20px;
+  }
 `
 
 const NavListItem = styled.li`
@@ -39,16 +48,24 @@ const Navigation = () => (
     </Logo>
     <NavList>
       <NavListItem>
-        <Link to="/blog">Blog</Link>
+        <Link to="/blog" activeClassName="active">
+          Blog
+        </Link>
       </NavListItem>
       <NavListItem>
-        <Link to="/about">O mnie</Link>
+        <Link to="/about" activeClassName="active">
+          O mnie
+        </Link>
       </NavListItem>
       <NavListItem>
-        <Link to="/gallery">Galeria</Link>
+        <Link to="/gallery" activeClassName="active">
+          Galeria
+        </Link>
       </NavListItem>
       <NavListItem>
-        <Link to="/contact">Kontakt</Link>
+        <Link to="/contact" activeClassName="active">
+          Kontakt
+        </Link>
       </NavListItem>
     </NavList>
   </NavWrapper>

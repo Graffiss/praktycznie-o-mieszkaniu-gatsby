@@ -9,14 +9,11 @@ module.exports = {
     `gatsby-plugin-layout`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [
-          {
-            family: `Raleway`,
-            variants: [`300`, `400`, `600`, `700`],
-          },
-        ],
+        google: {
+          families: ["Montserrat"],
+        },
       },
     },
     {
@@ -28,6 +25,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-mdx`,
     /* {
       resolve: `gatsby-plugin-manifest`,
       options: {

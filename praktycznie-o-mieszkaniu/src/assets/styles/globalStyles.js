@@ -12,12 +12,19 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 80px 65px 0;
-    font-family: 'Raleway';
+    font-family: 'Montserrat', sans-serif;
+    background: rgb(50, 43, 35);
+  background: radial-gradient(
+    circle,
+    rgba(50, 43, 35, 1) 0%,
+    rgba(25, 22, 17, 1) 100%
+  );
+    color: white;
   }
   button {
     padding: 0;
     cursor: pointer;
-    font-family: 'Raleway';
+    font-family: 'Montserrat', sans-serif;
   }
   p {
     font-size: 16px;
