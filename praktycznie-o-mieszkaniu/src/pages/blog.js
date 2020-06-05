@@ -24,15 +24,15 @@ const BlogPage = ({ data }) => {
     <>
       <PageInfo title={pageData.title} paragraph={pageData.paragraph} />
       <BlogWrapper>
-        {nodes.map(
-          ({ frontmatter: { title, slug, author, image }, excerpt }) => (
-            <BlogPost
-              title={title}
-              excerpt={excerpt}
-              background={image.childImageSharp.fluid.src}
-            />
-          )
-        )}
+        {nodes.map(({ frontmatter: { title, slug, image }, excerpt }) => (
+          <BlogPost
+            key={slug}
+            title={title}
+            excerpt={excerpt}
+            image={image.childImageSharp.fluid}
+            slug={slug}
+          />
+        ))}
       </BlogWrapper>
     </>
   )
@@ -49,7 +49,7 @@ export const query = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 640, maxHeight: 640) {
-                src
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
