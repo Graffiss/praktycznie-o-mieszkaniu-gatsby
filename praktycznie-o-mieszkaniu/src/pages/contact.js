@@ -75,7 +75,7 @@ const ContactPage = () => (
   <StyledWrapper>
     <Formik
       initialValues={{
-        name: "",
+        title: "",
         email: "",
         message: "",
       }}
@@ -84,23 +84,38 @@ const ContactPage = () => (
         actions.setSubmitting(false)
       }}
     >
-      {() => (
+      {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
         <StyledForm>
           <StyledInput
             type="text"
             name="title"
             placeholder="Tytuł wiadomości"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.title}
           />
 
-          <StyledInput type="email" name="email" placeholder="Email" />
+          <StyledInput
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.email}
+          />
 
           <StyledTextarea
             type="textarea"
             name="message"
             placeholder="Wpisz treść wiadomości..."
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.message}
           />
 
-          <Button type="submit">Wyślij</Button>
+          <Button type="submit" disabled={isSubmitting}>
+            Wyślij
+          </Button>
         </StyledForm>
       )}
     </Formik>
