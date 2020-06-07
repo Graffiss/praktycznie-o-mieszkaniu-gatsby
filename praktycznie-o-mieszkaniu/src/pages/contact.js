@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import styled from "styled-components"
 import Button from "../components/Button/Button"
@@ -17,7 +18,7 @@ const StyledWrapper = styled.div`
   }
 `
 
-const StyledForm = styled(Form)`
+const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,13 +80,24 @@ const ContactPage = () => (
         email: "",
         message: "",
       }}
-      onSubmit={(values, actions) => {
-        alert(JSON.stringify(values, null, 2))
-        actions.setSubmitting(false)
+      onSubmit={(values, { setSubmitting }) => {
+        axios
+          .post(
+            "https://us-central1-praktycznie-o-mieszkaniu.cloudfunctions.net/sendEmail",
+            values
+          )
+          .then(res => {
+            console.log(res)
+            setSubmitting(false)
+          })
+          .catch(err => {
+            console.log(err)
+            setSubmitting(false)
+          })
       }}
     >
       {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-        <StyledForm>
+        <StyledForm onSubmit={handleSubmit}>
           <StyledInput
             type="text"
             name="title"
