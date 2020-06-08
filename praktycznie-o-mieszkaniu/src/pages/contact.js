@@ -83,7 +83,7 @@ const ContactPage = () => (
       onSubmit={(values, { setSubmitting }) => {
         axios
           .post(
-            "https://us-central1-praktycznie-o-mieszkaniu.cloudfunctions.net/sendEmail",
+            "https://us-central1-praktycznie-o-mieszkaniu.cloudfunctions.net/sendMail",
             values
           )
           .then(res => {
